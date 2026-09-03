@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NANZZ MARKET</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #060912;
+      color: #f6f8fc;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    .btn {
+      background: #168cff;
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    button:hover,
+    .btn:hover {
+      background: #0b78dc;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 70px 18px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at top,
+          #24538d,
+          #090f1c 60%,
+          #060912
+        );
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #438de5;
+      border-radius: 30px;
+      padding: 7px 14px;
+      color: #9dceff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 10vw, 72px);
+      margin: 15px 0 8px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 25px;
+      color: #acb9cc;
+      line-height: 1.7;
+    }
+
+    /* CONTENT */
+    .wrap {
+      max-width: 1120px;
+      margin: auto;
+      padding: 42px 18px;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    .title {
+      font-size: 29px;
+      margin: 0 0 7px;
+    }
+
+    .sub {
+      color: #91a0b5;
+      margin: 0 0 24px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(235px, 1fr)
+      );
+      gap: 17px;
+    }
+
+    /* CARD */
+    .card,
+    .box,
+    .info {
+      background: #0d1522;
+      border: 1px solid #1d2b40;
+      border-radius: 17px;
+      padding: 20px;
+      box-shadow: 0 10px 30px #0003;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ico {
+      font-size: 35px;
+    }
+
+    .card h3 {
+      margin: 12px 0 7px;
+    }
+
+    .card p {
+      color: #95a4b8;
+      min-height: 35px;
+      line-height: 1.6;
+    }
+
+    .price {
+      font-size: 22px;
+      color: #76b9ff;
+      font-weight: 900;
+      margin: 15px 0;
+    }
+
+    .card button {
+      margin-top: auto;
+    }
+
+    /* PRICE BOX */
+    .box {
+      margin: 16px 0;
+    }
+
+    .box h3 {
+      margin-top: 0;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 0;
+      border-top: 1px solid #19263a;
+    }
+
+    .row b {
+      color: #78baff;
+    }
+
+    .row button {
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+
+    /* INFO */
+    .info {
+      margin-top: 36px;
+      line-height: 1.7;
+      color: #b7c3d4;
+    }
+
+    .info h2 {
+      color: #f6f8fc;
+    }
+
+    .link {
+      display: inline-block;
+      border: 1px solid #29415f;
+      border-radius: 10px;
+      padding: 10px 13px;
+      color: #9dccff;
+      margin: 5px;
+      transition: .2s ease;
+    }
+
+    .link:hover {
+      background: #12243a;
+      border-color: #438de5;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: #718096;
+      border-top: 1px solid #172236;
+      margin-top: 30px;
+    }
+
+    /* FLOATING WHATSAPP */
+    .wa {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #25d366;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      box-shadow: 0 8px 25px #0008;
+      z-index: 999;
+      transition: .2s ease;
+    }
+
+    .wa:hover {
+      transform: scale(1.08);
+    }
+
+    /* MOBILE */
+    @media (max-width: 520px) {
+      .hero {
+        padding: 55px 16px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .wrap {
+        padding: 35px 14px;
+      }
+
+      .title {
+        font-size: 25px;
+      }
+
+      .row {
+        grid-template-columns: 1fr auto;
+      }
+
+      .row button {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .price {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <span class="tag">DIGITAL STORE • NANZZ MARKET</span>
+
+    <h1>NANZZ MARKET</h1>
+
+    <p>
+      Marketplace NANZZ untuk produk digital, jasa sosial media,
+      paket FYP, dan APK Badak.
+    </p>
+
+    <a
+      class="btn"
+      target="_blank"
+      href="https://wa.me/6288230488694?text=Halo%20nanzz%20market%20saya%20ingin%20bertanya%20tentang%20produk"
+    >
+      💬 HUBUNGI ADMIN
+    </a>
+  </header>
+
+  <main class="wrap">
+
+    <!-- APK & PRODUK DIGITAL -->
+    <section>
+      <h2 class="title">APK &amp; PRODUK DIGITAL</h2>
+
+      <p class="sub">
+        Pilih produk lalu order langsung melalui WhatsApp.
+      </p>
+
+      <div class="grid">
+
+        <article class="card">
+          <span class="ico">🤖</span>
+          <h3>APK Auto SV</h3>
+          <p>Produk digital NANZZ MARKET.</p>
+          <div class="price">Rp2.000</div>
+          <button onclick="order('Halo nanzz market saya ingin membeli APK Auto SV')">
+            Pesan
+          </button>
+        </article>
+
+        <article class="card">
+          <span class="ico">📦</span>
+          <h3>APK Kebutuhan JB</h3>
+          <p>Produk digital NANZZ MARKET.</p>
+          <div class="price">Rp2.000</div>
+          <button onclick="order('Halo nanzz market saya ingin membeli APK Kebutuhan JB')">
+            Pesan
+          </button>
+        </article>
+
+        <article class="card">
+          <span class="ico">🔎</span>
+          <h3>APK Unchek</h3>
+          <p>Produk digital NANZZ MARKET.</p>
+          <div class="price">Rp2.000</div>
+          <button onclick="order('Halo nanzz market saya ingin membeli APK Unchek')">
+            Pesan
+          </button>
+        </article>
+
+        <article class="card">
+          <span class="ico">🧪</span>
+          <h3>Web Spam OTP</h3>
+          <p>Produk digital NANZZ MARKET.</p>
+          <div class="price">Rp2.000</div>
+          <button onclick="order('Halo nanzz market saya ingin membeli Web Spam OTP')">
+            Pesan
+          </button>
+        </article>
+
+        <article class="card">
+          <span class="ico">🌐</span>
+          <h3>Web Suntik</h3>
+          <p>Produk digital NANZZ MARKET.</p>
+          <div class="price">Rp5.000</div>
+          <button onclick="order('Halo nanzz market saya ingin membeli Web Suntik')">
+            Pesan
+          </button>
+        </article>
+
+        <article class="card">
+          <span class="ico">🎓</span>
+          <h3>Murid Suntik</h3>
+          <p>Produk digital NANZZ MARKET.</p>
+          <div class="price">Rp4.000</div>
+          <button onclick="order('Halo nanzz market saya ingin membeli Murid Suntik')">
+            Pesan
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- LIST SUNTIK -->
+    <section>
+      <h2 class="title">LIST SUNTIK BY NANZZ</h2>
+      <p class="sub">Pilih layanan dan nominal.</p>
+
+      <!-- TIKTOK FOLLOWERS -->
+      <div class="box">
+        <h3>— Followers TikTok</h3>
+
+        <div class="row">
+          <span>100 FOLL</span>
+          <b>Rp5.000</b>
+          <button onclick="order('Halo nanzz market saya ingin order Followers TikTok 100 FOLL harga Rp5.000')">Order</button>
+        </div>
+
+        <div class="row">
+          <span>200 FOLL</span>
+          <b>Rp10.000</b>
+          <button onclick="order('Halo nanzz market saya ingin order Followers TikTok 200 FOLL harga Rp10.000')">Order</button>
+        </div>
+
+        <div class="row">
+          <span>300 FOLL</span>
+          <b>Rp12.000</b>
+          <button onclick="order('Halo nanzz market saya ingin order Followers TikTok 300 FOLL harga Rp12.000')">Order</button>
+        </div>
+
+        <div class="row">
+          <span>400 FOLL</span>
+          <b>Rp18.000</b>
+          <button onclick="order('Halo nanzz market saya ingin order Followers TikTok 400 FOLL harga Rp18.000')">Order</button>
+        </div>
+
+        <div class="row">
+          <span>500 FOLL</span>
+          <b>Rp20.000</b>
+          <button onclick="order('Halo nanzz market saya ingin order Followers TikTok 500 FOLL harga Rp20.000')">Order</button>
+        </div>
+
+        <div class="row">
+          <span>1000 FOLL</span>
+          <b>Rp40.000</b>
+          <button onclick="order('Halo nanzz market saya ingin order Followers TikTok 1000 FOLL harga Rp40.000')">Order</button>
+        </div>
+      </div>
+
+      <!-- TIKTOK LIKE -->
+      <div class="box">
+        <h3>— Like TikTok</h3>
+
+        <div class="row"><span>100</span><b>Rp1.000</b><button onclick="order('Halo nanzz market saya ingin order Like TikTok 100 harga Rp1.000')">Order</button></div>
+        <div class="row"><span>200</span><b>Rp2.000</b><button onclick="order('Halo nanzz market saya ingin order Like TikTok 200 harga Rp2.000')">Order</button></div>
+        <div class="row"><span>300</span><b>Rp3.000</b><button onclick="order('Halo nanzz market saya ingin order Like TikTok 300 harga Rp3.000')">Order</button></div>
+        <div class="row"><span>400</span><b>Rp4.000</b><button onclick="order('Halo nanzz market saya ingin order Like TikTok 400 harga Rp4.000')">Order</button></div>
+        <div class="row"><span>500</span><b>Rp5.000</b><button onclick="order('Halo nanzz market saya ingin order Like TikTok 500 harga Rp5.000')">Order</button></div>
+        <div class="row"><span>1000</span><b>Rp10.000</b><button onclick="order('Halo nanzz market saya ingin order Like TikTok 1000 harga Rp10.000')">Order</button></div>
+      </div>
+
+      <!-- TIKTOK VIEWERS -->
+      <div class="box">
+        <h3>— TikTok Viewers</h3>
+
+        <div class="row"><span>1K</span><b>Rp1.500</b><button onclick="order('Halo nanzz market saya ingin order TikTok Viewers 1K harga Rp1.500')">Order</button></div>
+        <div class="row"><span>2K</span><b>Rp2.000</b><button onclick="order('Halo nanzz market saya ingin order TikTok Viewers 2K harga Rp2.000')">Order</button></div>
+        <div class="row"><span>3K</span><b>Rp3.000</b><button onclick="order('Halo nanzz market saya ingin order TikTok Viewers 3K harga Rp3.000')">Order</button></div>
+        <div class="row"><span>4K</span><b>Rp4.000</b><button onclick="order('Halo nanzz market saya ingin order TikTok Viewers 4K harga Rp4.000')">Order</button></div>
+        <div class="row"><span>5K</span><b>Rp5.000</b><button onclick="order('Halo nanzz market saya ingin order TikTok Viewers 5K harga Rp5.000')">Order</button></div>
+        <div class="row"><span>10K</span><b>Rp9.000</b><button onclick="order('Halo nanzz market saya ingin order TikTok Viewers 10K harga Rp9.000')">Order</button></div>
+        <div class="row"><span>20K</span><b>Rp15.000</b><button onclick="order('Halo nanzz market saya ingin order TikTok Viewers 20K harga Rp15.000')">Order</button></div>
+      </div>
+
+      <!-- IG FOLLOWERS -->
+      <div class="box">
+        <h3>— IG Followers</h3>
+
+        <div class="row"><span>100</span><b>Rp3.000</b><button onclick="order('Halo nanzz market saya ingin order IG Followers 100 harga Rp3.000')">Order</button></div>
+        <div class="row"><span>200</span><b>Rp5.000</b><button onclick="order('Halo nanzz market saya ingin order IG Followers 200 harga Rp5.000')">Order</button></div>
+        <div class="row"><span>300</span><b>Rp12.000</b><button onclick="order('Halo nanzz market saya ingin order IG Followers 300 harga Rp12.000')">Order</button></div>
+        <div class="row"><span>400</span><b>Rp16.000</b><button onclick="order('Halo nanzz market saya ingin order IG Followers 400 harga Rp16.000')">Order</button></div>
+        <div class="row"><span>500</span><b>Rp20.000</b><button onclick="order('Halo nanzz market saya ingin order IG Followers 500 harga Rp20.000')">Order</button></div>
+        <div class="row"><span>1000</span><b>Rp25.000</b><button onclick="order('Halo nanzz market saya ingin order IG Followers 1000 harga Rp25.000')">Order</button></div>
+      </div>
+
+      <!-- IG LIKE -->
+      <div class="box">
+        <h3>— IG Like</h3>
+
+        <div class="row"><span>100</span><b>Rp1.000</b><button onclick="order('Halo nanzz market saya ingin order IG Like 100 harga Rp1.000')">Order</button></div>
+        <div class="row"><span>200</span><b>Rp2.000</b><button onclick="order('Halo nanzz market saya ingin order IG Like 200 harga Rp2.000')">Order</button></div>
+        <div class="row"><span>300</span><b>Rp3.000</b><button onclick="order('Halo nanzz market saya ingin order IG Like 300 harga Rp3.000')">Order</button></div>
+        <div class="row"><span>400</span><b>Rp4.000</b><button onclick="order('Halo nanzz market saya ingin order IG Like 400 harga Rp4.000')">Order</button></div>
+        <div class="row"><span>500</span><b>Rp5.000</b><button onclick="order('Halo nanzz market saya ingin order IG Like 500 harga Rp5.000')">Order</button></div>
+        <div class="row"><span>1000</span><b>Rp10.000</b><button onclick="order('Halo nanzz market saya ingin order IG Like 1000 harga Rp10.000')">Order</button></div>
+      </div>
+
+      <!-- IG VIEWERS -->
+      <div class="box">
+        <h3>— IG Viewers</h3>
+
+        <div class="row"><span>1K</span><b>Rp1.000</b><button onclick="order('Halo nanzz market saya ingin order IG Viewers 1K harga Rp1.000')">Order</button></div>
+        <div class="row"><span>2K</span><b>Rp2.000</b><button onclick="order('Halo nanzz market saya ingin order IG Viewers 2K harga Rp2.000')">Order</button></div>
+        <div class="row"><span>3K</span><b>Rp2.000</b><button onclick="order('Halo nanzz market saya ingin order IG Viewers 3K harga Rp2.000')">Order</button></div>
+        <div class="row"><span>4K</span><b>Rp4.000</b><button onclick="order('Halo nanzz market saya ingin order IG Viewers 4K harga Rp4.000')">Order</button></div>
+        <div class="row"><span>5K</span><b>Rp5.000</b><button onclick="order('Halo nanzz market saya ingin order IG Viewers 5K harga Rp5.000')">Order</button></div>
+        <div class="row"><span>10K</span><b>Rp9.000</b><button onclick="order('Halo nanzz market saya ingin order IG Viewers 10K harga Rp9.000')">Order</button></div>
+        <div class="row"><span>20K</span><b>Rp15.000</b><button onclick="order('Halo nanzz market saya ingin order IG Viewers 20K harga Rp15.000')">Order</button></div>
+      </div>
+
+      <!-- WHATSAPP CHANNEL -->
+      <div class="box">
+        <h3>— Pengikut Saluran WhatsApp</h3>
+
+        <div class="row"><span>20 PENGIKUT</span><b>Rp1.000</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 20 PENGIKUT harga Rp1.000')">Order</button></div>
+        <div class="row"><span>30 PENGIKUT</span><b>Rp2.000</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 30 PENGIKUT harga Rp2.000')">Order</button></div>
+        <div class="row"><span>40 PENGIKUT</span><b>Rp3.000</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 40 PENGIKUT harga Rp3.000')">Order</button></div>
+        <div class="row"><span>50 PENGIKUT</span><b>Rp5.000</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 50 PENGIKUT harga Rp5.000')">Order</button></div>
+        <div class="row"><span>100 PENGIKUT</span><b>Rp6.000</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 100 PENGIKUT harga Rp6.000')">Order</button></div>
+        <div class="row"><span>200 PENGIKUT</span><b>Rp7.500</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 200 PENGIKUT harga Rp7.500')">Order</button></div>
+        <div class="row"><span>300 PENGIKUT</span><b>Rp9.500</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 300 PENGIKUT harga Rp9.500')">Order</button></div>
+        <div class="row"><span>400 PENGIKUT</span><b>Rp11.000</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 400 PENGIKUT harga Rp11.000')">Order</button></div>
+        <div class="row"><span>500 PENGIKUT</span><b>Rp13.000</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 500 PENGIKUT harga Rp13.000')">Order</button></div>
+        <div class="row"><span>1000 PENGIKUT</span><b>Rp15.000</b><button onclick="order('Halo nanzz market saya ingin order Pengikut Saluran WhatsApp 1000 PENGIKUT harga Rp15.000')">Order</button></div>
+      </div>
+    </section>
+
+    <!-- PAKET FYP -->
+    <section>
+      <h2 class="title">PAKET FYP</h2>
+
+      <div class="grid">
+
+        <article class="box">
+          <h3>PAKET FYP TIKTOK</h3>
+
+          <p>
+            • 1.000 LIKE<br>
+            • 10.000 VIEW<br>
+            • 1.000 SHARE<br>
+            • 100 FOLLOWERS
+          </p>
+
+          <div class="price">Rp15.000</div>
+
+          <button onclick="order('Halo nanzz market saya ingin order Paket FYP TikTok Rp15.000')">
+            Order
+          </button>
+        </article>
+
+        <article class="box">
+          <h3>PAKET FYP INSTAGRAM</h3>
+
+          <p>
+            • 1.000 LIKE<br>
+            • 10.000 VIEW<br>
+            • 100 REPOST<br>
+            • 100 FOLLOWERS
+          </p>
+
+          <div class="price">Rp15.000</div>
+
+          <button onclick="order('Halo nanzz market saya ingin order Paket FYP Instagram Rp15.000')">
+            Order
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- MURSUN -->
+    <section>
+      <h2 class="title">MURSUN &amp; WEB SUNTIK</h2>
+
+      <div class="grid">
+
+        <article class="box">
+          <h3>OPEN MURSUN — Rp5.000</h3>
+
+          <p>
+            • Dapat web suntik<br>
+            • Full dorongan<br>
+            • Bisa membuka jasa sendiri<br>
+            • Bebas digunakan untuk kebutuhan promosi yang sesuai
+          </p>
+
+          <button onclick="order('Halo nanzz market saya ingin order Open Mursun Rp5.000')">
+            Order
+          </button>
+        </article>
+
+        <article class="box">
+          <h3>JUAL WEB SUNTIK — Rp5.000</h3>
+
+          <p>
+            • Web bisa dijual lagi<br>
+            • Bisa open Mursun<br>
+            • Bisa menjadi penyedia jasa<br>
+            • Mendukung kebutuhan promosi yang sesuai
+          </p>
+
+          <button onclick="order('Halo nanzz market saya ingin order Jual Web Suntik Rp5.000')">
+            Order
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- APK BADAK -->
+    <section>
+      <h2 class="title">APK BADAK BY NANZZ NEW ERA</h2>
+
+      <p class="sub">
+        Member, Reseller, Partner, dan VIP.
+      </p>
+
+      <!-- MEMBER -->
+      <div class="box">
+        <h3>MEMBER</h3>
+
+        <div class="row"><span>1H</span><b>Rp500P</b><button onclick="order('Halo nanzz market saya ingin order APK Badak MEMBER 1H Rp500P')">Order</button></div>
+        <div class="row"><span>3H</span><b>Rp1K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak MEMBER 3H Rp1K')">Order</button></div>
+        <div class="row"><span>7H</span><b>Rp2K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak MEMBER 7H Rp2K')">Order</button></div>
+        <div class="row"><span>30H</span><b>Rp5K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak MEMBER 30H Rp5K')">Order</button></div>
+      </div>
+
+      <!-- RESELLER -->
+      <div class="box">
+        <h3>RESELLER</h3>
+
+        <div class="row"><span>1H</span><b>Rp1K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak RESELLER 1H Rp1K')">Order</button></div>
+        <div class="row"><span>3H</span><b>Rp2K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak RESELLER 3H Rp2K')">Order</button></div>
+        <div class="row"><span>7H</span><b>Rp4K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak RESELLER 7H Rp4K')">Order</button></div>
+        <div class="row"><span>30H</span><b>Rp6K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak RESELLER 30H Rp6K')">Order</button></div>
+      </div>
+
+      <!-- PARTNER -->
+      <div class="box">
+        <h3>PARTNER</h3>
+
+        <div class="row"><span>1H</span><b>Rp1.5K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak PARTNER 1H Rp1.5K')">Order</button></div>
+        <div class="row"><span>3H</span><b>Rp3K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak PARTNER 3H Rp3K')">Order</button></div>
+        <div class="row"><span>7H</span><b>Rp6K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak PARTNER 7H Rp6K')">Order</button></div>
+        <div class="row"><span>30H</span><b>Rp8K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak PARTNER 30H Rp8K')">Order</button></div>
+        <div class="row"><span>PERMANENT</span><b>Rp10K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak PARTNER PERMANENT Rp10K')">Order</button></div>
+      </div>
+
+      <!-- VIP -->
+      <div class="box">
+        <h3>VIP</h3>
+
+        <div class="row"><span>1H</span><b>Rp2K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak VIP 1H Rp2K')">Order</button></div>
+        <div class="row"><span>3H</span><b>Rp6K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak VIP 3H Rp6K')">Order</button></div>
+        <div class="row"><span>7H</span><b>Rp8K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak VIP 7H Rp8K')">Order</button></div>
+        <div class="row"><span>30H</span><b>Rp10K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak VIP 30H Rp10K')">Order</button></div>
+        <div class="row"><span>60H</span><b>Rp12K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak VIP 60H Rp12K')">Order</button></div>
+        <div class="row"><span>PERMANENT</span><b>Rp15K</b><button onclick="order('Halo nanzz market saya ingin order APK Badak VIP PERMANENT Rp15K')">Order</button></div>
+      </div>
+    </section>
+
+    <!-- BADAKIN WA -->
+    <section>
+      <h2 class="title">LIST BADAKIN WA</h2>
+
+      <div class="box">
+
+        <div class="row">
+          <span>500P</span>
+          <b>50C</b>
+          <button onclick="order('Halo nanzz market saya ingin order Badakin WA 500P 50C')">
+            Order
+          </button>
+        </div>
+
+        <div class="row">
+          <span>1K</span>
+          <b>100C</b>
+          <button onclick="order('Halo nanzz market saya ingin order Badakin WA 1K 100C')">
+            Order
+          </button>
+        </div>
+
+        <div class="row">
+          <span>2K</span>
+          <b>200C</b>
+          <button onclick="order('Halo nanzz market saya ingin order Badakin WA 2K 200C')">
+            Order
+          </button>
+        </div>
+
+        <div class="row">
+          <span>4K</span>
+          <b>489C</b>
+          <button onclick="order('Halo nanzz market saya ingin order Badakin WA 4K 489C')">
+            Order
+          </button>
+        </div>
+
+        <div class="row">
+          <span>5K</span>
+          <b>500C</b>
+          <button onclick="order('Halo nanzz market saya ingin order Badakin WA 5K 500C')">
+            Order
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAYMENT & SOCIAL -->
+    <section class="info">
+
+      <h2>💳 PAYMENT</h2>
+
+      <p>
+        QRIS ALL PAY<br>
+        DANA<br>
+        GOPAY
+      </p>
+
+      <h2>📢 CHANNEL &amp; SOSIAL</h2>
+
+      <a
+        class="link"
+        href="https://whatsapp.com/channel/0029VbBdKSI4tRrwNVP5Xu3u"
+        target="_blank"
+        rel="noopener"
+      >
+        ALL INFO NANZZ
+      </a>
+
+      <a
+        class="link"
+        href="https://whatsapp.com/channel/0029VbDTTRs77qVZefI2ao1R"
+        target="_blank"
+        rel="noopener"
+      >
+        ALL TESTI NANZZSTURR
+      </a>
+
+      <a
+        class="link"
+        href="https://t.me/nanzzsturrtwfemes"
+        target="_blank"
+        rel="noopener"
+      >
+        TELEGRAM
+      </a>
+
+      <p>
+        <b>MINAT? HUB:</b>
+
+        <a
+          class="link"
+          href="https://wa.me/6288230488694"
+          target="_blank"
+          rel="noopener"
+        >
+          0882-3048-8694
+        </a>
+      </p>
+
+      <p>
+        <b>NOTE:</b>
+        Layanan sosial media membutuhkan proses.
+        Pastikan akun tidak privat dan detail order benar.
+        Fitur OTP hanya untuk pengujian sistem yang kamu miliki
+        atau berwenang mengujinya.
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 NANZZ MARKET
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a
+    class="wa"
+    href="https://wa.me/6288230488694"
+    target="_blank"
+    rel="noopener"
+    aria-label="Hubungi NANZZ MARKET melalui WhatsApp"
+  >
+    ☏
+  </a>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const whatsappNumber = "6288230488694";
+
+    function order(text) {
+      const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(text);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  </script>
+
+</body>
+</html>
